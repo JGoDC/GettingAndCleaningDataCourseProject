@@ -24,7 +24,7 @@ final output of the project
 
 ## Explanation of the project solution
 
-\\1.  Look at project specifications and web site containing project data:
+Step 1.  Look at project specifications and web site containing project data:
 
 From the Abstract on the web site providing the raw data -- the following
 numbers seem to be key to understanding the data:
@@ -34,7 +34,7 @@ numbers seem to be key to understanding the data:
 * Number of Attributes: 561
 * Number of recorded activities: 6
 
-\\2.  Look at raw data
+Step 2.  Look at raw data
 
 
 
