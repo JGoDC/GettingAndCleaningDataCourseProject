@@ -16,5 +16,11 @@ detailed in the CodeBook.md.
 The run_analysis.R script processes the project raw input data
 into the final output of the project, the tidy_file
 
+## other files
 
+### CodeBook.md         
+detailed explanation of the project and processing
+
+### tidy_dataset        
+final output of the project
 
