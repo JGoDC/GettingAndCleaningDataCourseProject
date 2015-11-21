@@ -3,5 +3,4 @@
 ---
 title: READMD.md
 author: J Go
-date: 11/21/15
 ---
