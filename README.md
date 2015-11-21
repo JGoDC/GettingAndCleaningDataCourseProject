@@ -3,7 +3,8 @@ title: READMD.md
 ---
 
 ---
-author: J Go; date: 11/21/15
+### author: J Go 
+### date: 11/21/15
 ---
 
 # Getting And Cleaning Data Course Project 
@@ -26,17 +27,17 @@ final output of the project
 
 ## Explanation of determining the project solution
 
-1.  Look at project specifications and web site containing project data:
+\1.  Look at project specifications and web site containing project data:
 
 From the Abstract on the web site providing the raw data -- the following
 numbers seem to be key to understanding the data:
 
 * Number of subjects: 30
 * Number of Instances: 10299
-* Number of Attributes: 561,
+* Number of Attributes: 561
 * Number of recorded activities: 6
 
-2.  Look at raw data
+\2.  Look at raw data
 
 
 
