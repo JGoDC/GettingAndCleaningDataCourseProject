@@ -1,10 +1,7 @@
 ---
 title: READMD.md
----
-
----
-### author: J Go 
-### date: 11/21/15
+author: J Go 
+date: 11/21/15
 ---
 
 # Getting And Cleaning Data Course Project 
