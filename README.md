@@ -10,10 +10,11 @@ author: J Go
 
 ## script:
 
-run_analysis.R  # script that performs the steps of the project as described in
-                # the CodeBook.md
-                # Essential run_analysis.R processing the project input data
-                # into the final output of the project, the tidy_file
+### run_analysis.R  
+This script performs the steps of the project as summarized below and as 
+detailed in the CodeBook.md.
+The run_analysis.R script processes the project raw input data
+into the final output of the project, the tidy_file
 
 
 
