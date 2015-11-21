@@ -64,17 +64,17 @@ str(activity_labels)
 
 str(features)
 'data.frame':   561 obs. of  2 variables:
- $ V1: int  1 2 3 4 5 6 7 8 9 10 ...
- $ V2: Factor w/ 477 levels "angle(tBodyAccJerkMean),gravityMean)",..: 243 244 245 250 251 252 237 238 239 240 ..
+ V1: int  1 2 3 4 5 6 7 8 9 10 ...
+ V2: Factor w/ 477 levels "angle(tBodyAccJerkMean),gravityMean)",..: 243 244 245 250 251 252 237 238 239 240 ..
 
 str(xtrain)
 'data.frame':   7352 obs. of  561 variables:
 
 str(xtest)
 'data.frame':   2947 obs. of  561 variables:
- $ V1  : num  0.257 0.286 0.275 0.27 0.275 ...
+ V1  : num  0.257 0.286 0.275 0.27 0.275 ...
 
 str(ytrain)
 'data.frame':   7352 obs. of  1 variable:
- $ V1: int  5 5 5 5 5 5 5 5 5 5 ...
+ V1: int  5 5 5 5 5 5 5 5 5 5 ...
 
