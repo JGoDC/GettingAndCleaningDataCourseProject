@@ -77,5 +77,5 @@ str(xtest)
 
 str(ytrain)
 'data.frame':   7352 obs. of  1 variable:
- *V1: int  5 5 5 5 5 5 5 5 5 5 ...
+ * V1: int  5 5 5 5 5 5 5 5 5 5 ...
 
