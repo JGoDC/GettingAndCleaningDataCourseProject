@@ -59,8 +59,8 @@ Check the structure of the objects now containing the raw data:
 
 str(activity_labels)
 'data.frame':   6 obs. of  2 variables:
- $ V1: int  1 2 3 4 5 6
- $ V2: Factor w/ 6 levels "LAYING","SITTING",..: 4 6 5 2 3 1
+ * V1: int  1 2 3 4 5 6
+ * V2: Factor w/ 6 levels "LAYING","SITTING",..: 4 6 5 2 3 1
 
 str(features)
 'data.frame':   561 obs. of  2 variables:
@@ -71,7 +71,7 @@ str(xtrain)
 'data.frame':   7352 obs. of  561 variables:
 
 str(xtest)
-'data.frame':   2947 obs. of  561 variables:
+'data.frame':   2947 obs. of  561 variables
  V1  : num  0.257 0.286 0.275 0.27 0.275 ...
 
 str(ytrain)
