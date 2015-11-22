@@ -92,5 +92,13 @@ bind_cols(subjmerge, ymerge, xmerge)
 
 merge_x_subj_y <- bind_cols(subjmerge, ymerge, xmerge)
 
+### Project Step 2: Extracts only the measurements on the mean and standard deviation for each measurement using tbl_df, filter and select.  See codebook and script for further details
 
+tbl_df(features) %>% filter(grepl("[Mm]ean|std", V2)) %>% select(V1)
+
+### Project Step 3:
+
+### Project Step 4:
+
+### Project Step 5: 
 
