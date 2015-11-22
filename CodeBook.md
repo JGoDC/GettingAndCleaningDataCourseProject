@@ -24,6 +24,8 @@ You will be required to submit:
 3) a code book that describes the variables, the data, and any transformations 
 or work that you performed to clean up the data called CodeBook.md. 
 
+Descriptive information on project data
+
 One of the most exciting areas in all of data science right now is wearable 
 computing - see for example this article . Companies like Fitbit, Nike, and 
 Jawbone Up are racing to develop the most advanced algorithms to attract new 
@@ -40,13 +42,8 @@ Abstract: Human Activity Recognition database built from the recordings of 30
 subjects performing activities of daily living (ADL) while carrying a waist-
 mounted smartphone with embedded inertial sensors.
 
-Data Set Characteristics:  Multivariate, Time-Series, 
-Number of Instances: 
-
-Number of Instances: 10299, 
-Area: Computer Attribute Characteristics: N/A, 
-Number of Attributes: 561, 
-Date Donated 2012-12-10
+Data Set Characteristics:  Multivariate, Time-Series, Number of Instances: 10299, 
+Area: Computer Attribute Characteristics: N/A, Number of Attributes: 561, Date Donated 2012-12-10
 
 ## Study design and data processing
 
@@ -55,29 +52,33 @@ According to Hadley Wickham in the dplyr vignette,
 "There are three main tasks in any data analysis:
 
 1. Figuring out what you want to do.
+
 2. Turning a vague goal into a precise set of tasks (i.e. programming).
+
 3. Actually crunching the numbers."
 
 
 1. Figuring out what you want to do.
 
 1.A.   Understand the course project.
+
 1.A.1. Read the project instructions.
+
 1.A.2. Read the information on the course project data website.
 
 1.B.   Download the the course project data.
 
 1.C.   Understand the data associated with the course project.
+
 1.C.1. Read the descriptive project data files:
 	README.txt
 	features_info.txt
+
 1.C.2. Read the project data into R and examine.
 
 1.D.   Choose the set of R tools to work with based on initial understanding
        of the data and the problem and initial examination of the data:
-	dplyr
-	tidyr
-	etc
+	dplyr, tidyr, etc
 
 1.E.   Implement the steps required by the project specification one at a time
        in the script run_analysis.R
@@ -100,7 +101,9 @@ According to Hadley Wickham in the dplyr vignette,
 	   set with the average of each variable for each activity and each 
 	   subject.
 
-3. Actually crunching the numbers.
+3. Actually crunching the numbers. 
+
+   Comines the above steps into run_analysis.R
 
 ###Collection of the raw data
 
@@ -320,8 +323,6 @@ Merge subjmerge, ymerge, xmerge into a single dataset using bind_cols from dplyr
 bind_cols(subjmerge, ymerge, xmerge)
 
 merge_x_subj_y <- bind_cols(subjmerge, ymerge, xmerge)
-
-##Extracting only the measurements on the mean and standard deviation for each measurement. 
 
 ## 2) Extracts only the measurements on the mean and standard deviation for each measurement. 
 
