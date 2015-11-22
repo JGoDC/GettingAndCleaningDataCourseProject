@@ -119,3 +119,130 @@ Because the same subject performs the same activities multiple times aggregation
 Because the mean of activities is also required at the time of the aggregation, summarize_each is used to apply the mean function
 
 Because it is means that are being reported, the string "mean_" is prepended to the name of each feature variable using setNames to further enhance these labels
+
+### Output of run_analysis.R to further illustrate the project solution
+
+Liberal use was made of print statements as an aid to developement and to demonstrate the working of the program
+
+This is the output of run_analysis.R looks like as the script is running
+
+source('~/coursera/r/tst.R')
+Changing current working directory to: '/Users/j/coursera/r/UCI_HAR_Dataset'
+
+Reading activity_labels:
+ WALKING
+ WALKING_UPSTAIRS
+ WALKING_DOWNSTAIRS
+ SITTING
+ STANDING
+ LAYING
+
+Reading features:
+First ten features are:
+ 'tBodyAcc-mean()-X'
+ 'tBodyAcc-mean()-Y'
+ 'tBodyAcc-mean()-Z'
+ 'tBodyAcc-std()-X'
+ 'tBodyAcc-std()-Y'
+ 'tBodyAcc-std()-Z'
+
+Reading subject_test...
+Reading subject_train...
+
+Merging subject_test and subject_train into subject_merge
+Found '30' unique subjects as expected which are:
+ '2'
+ '4'
+ '9'
+ '10'
+ '12'
+ '13'
+ '18'
+ '20'
+ '24'
+ '1'
+ '3'
+ '5'
+ '6'
+ '7'
+ '8'
+ '11'
+ '14'
+ '15'
+ '16'
+ '17'
+ '19'
+ '21'
+ '22'
+ '23'
+ '25'
+ '26'
+ '27'
+ '28'
+ '29'
+ '30'
+
+Merging activities in y_test and y_train into activity_merge
+Found '6' unique elements in act_merge which are:
+ '5'
+ '4'
+ '6'
+ '1'
+ '3'
+ '2'
+
+Merging x_test and x_train into measurement_merge
+Showing number of rows in measurement_merge is 10299 as expected: '10299'
+Showing number of cols in measurement_merge is 561 as expected: '561'
+
+Merging subject_merge, act_merge and measurement_merge into merge_subj_act_measurement
+Showing number of rows in merge_subj_act_measurement is 10299 as expected: '10299'
+Showing number of cols in merge_subj_act_measurement is 563 as expected: '563'
+
+Extracting subject, act and only mean and stdmeasurements from merge_subj_act_measurement
+
+Creating index for extracting subject, act and only mean and stdmeasurements from merged dataset
+Showing number of rows in extract_dataset is 10299 as expected: '10299'
+Showing number of cols in extract_dataset is 88 as expected: '88'
+
+Creating descriptive activity names to name activities in extracted dataset
+First and last descriptive activity names are:
+ 'STANDING'
+ 'WALKING_UPSTAIRS'
+
+Creating descriptive variable names to name for columns in extracted dataset
+First and last descriptive variable names are:
+ 'subj'
+ 'angle_Z_gravityMean'
+
+Creating tidy dataset: tidy_dataset
+Showing number of rows in tidy_tidy_dataset is 180 as expected: '180'
+Showing number of cols in tidy_tidy_dataset is 88 as expected: '88'
+
+### View of first 13 rows, last 10 rows, and first five columns of the 180 by 88 tidy_dataset:
+
+	subj	act	mean_tBodyAcc_mean_X	mean_tBodyAcc_mean_Y	mean_tBodyAcc_mean_Z
+1	1	LAYING			0.2215982	-0.040513953	-0.1132036
+2	1	SITTING			0.2612376	-0.001308288	-0.1045442
+3	1	STANDING		0.2789176	-0.016137590	-0.1106018
+4	1	WALKING			0.2773308	-0.017383819	-0.1111481
+5	1	WALKING_DOWNSTAIRS	0.2891883	-0.009918505	-0.1075662
+6	1	WALKING_UPSTAIRS	0.2554617	-0.023953149	-0.0973020
+7	2	LAYING			0.2813734	-0.018158740	-0.1072456
+8	2	SITTING			0.2770874	-0.015687994	-0.1092183
+9	2	STANDING		0.2779115	-0.018420827	-0.1059085
+10	2	WALKING			0.2764266	-0.018594920	-0.1055004
+11	2	WALKING_DOWNSTAIRS	0.2776153	-0.022661416	-0.1168129
+12	2	WALKING_UPSTAIRS	0.2471648	-0.021412113	-0.1525139
+13	3	LAYING			0.2755169	-0.018955679	-0.1013005
+...
+171	29	STANDING		0.2779651	-0.017260587	-0.10865907
+172	29	WALKING			0.2719999	-0.016291560	-0.10663243
+173	29	WALKING_DOWNSTAIRS	0.2931404	-0.014941215	-0.09813400
+174	29	WALKING_UPSTAIRS	0.2654231	-0.029946531	-0.11800059
+175	30	LAYING			0.2810339	-0.019449410	-0.10365815
+176	30	SITTING			0.2683361	-0.008047313	-0.09951545
+177	30	STANDING		0.2771127	-0.017016389	-0.10875621
+178	30	WALKING			0.2764068	-0.017588039	-0.09862471
+179	30	WALKING_DOWNSTAIRS	0.2831906	-0.017438390	-0.09997814
+180	30	WALKING_UPSTAIRS	0.2714156	-0.025331170	-0.12469749
