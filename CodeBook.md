@@ -139,30 +139,12 @@ UCI_HAR_Dataset/train:
 -rwxr-xr-x@  1 j  staff  66006256 Nov 29  2012 X_train.txt
 drwxr-xr-x@ 11 j  staff       374 Nov 29  2012 Inertial Signals
 
-Setting aside Inertial Signals for now which are the following files
+Setting aside Inertial Signals for now 
 Did not revisit these files since they did not contain mean and std info
 
-UCI_HAR_Dataset/test/Inertial Signals:
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_acc_z_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_acc_y_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_acc_x_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 total_acc_x_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 total_acc_z_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 total_acc_y_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_gyro_x_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_gyro_z_test.txt
--rwxr-xr-x@ 1 j  staff  6041350 Nov 29  2012 body_gyro_y_test.txt
+UCI_HAR_Dataset/test/Inertial Signals
 
-UCI_HAR_Dataset/train/Inertial Signals:
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_acc_x_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_acc_y_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_acc_z_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 total_acc_y_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 total_acc_x_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 total_acc_z_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_gyro_x_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_gyro_y_train.txt
--rwxr-xr-x@ 1 j  staff  15071600 Nov 29  2012 body_gyro_z_train.txt
+UCI_HAR_Dataset/train/Inertial Signals
 
 B. Read data from laptop into R
 
@@ -308,6 +290,7 @@ C.6 Look at features:
 ...
 
 ##Creating the merged datafile
+
 Based on the dimensional and structural analysis in the preceeding section it 
 is now apparent that the way to merge the data is as follows.
 
@@ -365,7 +348,7 @@ extract mean/std as above and combing subj and act afterwords using col_bind aga
 num_xcols <- as.numeric(dim(xmerge)[2])
 
 num_xcols
-#[1] 561
+[1] 561
 subj_col_num <- num_xcols + 1
 
 act_col_num <- num_xcols + 2
@@ -397,7 +380,7 @@ first   # to show result
 
 need to translate V1:V561 to features ~ very simple: but can't use b/c are duplicates & can't have duplctd col names
 
-colnames(df) <- features$V2	#****
+colnames(df) <- features$V2	
 
 but this should work
 
@@ -437,21 +420,39 @@ eatures for which contain the string "std" or "mean" for which contain the strin
 
 The tidy dataset has 88 columns: subject (1-30), activity (each of the six activities for each subject, and 86 columns for the mean of the aggregate of the 86 measurement features taken for each subject perfoming each activity. 
 
-## Summary of the data
+## Summary of the data in the tidy_dataset
 
-The 
+The subjects number 1 to 30 for each of 30 subjects
+
+The measurement features as found in the raw data were normalized and bounded within the range of -1 to 1, and thus have no units.  (To be clear, this is how they existed in the raw data.)    
+
+The mean
 
 ## Variables present in the dataset
 
+subj = subjects are 1 to 30 
+
+act = activities WALKING and others mentioned right above 
+
+mean_ prefix = mean of aggregated measurement feature for subject-activity, and applies to variables 3 to 88
+
+other abbreviations in variable names include
+
+t = time, Acc = acceleration, X,Y,Z are each an axis
+
+std is standard deviation, gyro is gryroscope
+
+Further details on these variables seems to require subject matter knowledge to fully understand, and further details are provided on the web site for the Human Activity Recognition Using Smartphones Data Set mentioned in Sources below
+
 colnames(tidy_dataset)
 
- [1] "subj"                                    
- [2] "act"                                     
- [3] "mean_tBodyAcc_mean_X"                    
- [4] "mean_tBodyAcc_mean_Y"                    
- [5] "mean_tBodyAcc_mean_Z"                    
- [6] "mean_tBodyAcc_std_X"                     
- [7] "mean_tBodyAcc_std_Y"                     
+ [1] "subj"                                   
+ [2] "act"                                   
+ [3] "mean_tBodyAcc_mean_X"   
+ [4] "mean_tBodyAcc_mean_Y"   
+ [5] "mean_tBodyAcc_mean_Z"   
+ [6] "mean_tBodyAcc_std_X"     
+ [7] "mean_tBodyAcc_std_Y"    
  [8] "mean_tBodyAcc_std_Z"                     
  [9] "mean_tGravityAcc_mean_X"                 
 [10] "mean_tGravityAcc_mean_Y"                 
