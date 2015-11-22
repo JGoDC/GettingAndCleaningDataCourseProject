@@ -1,7 +1,8 @@
 ---
 title: READMD.md
 author: J Go 
-date: 11/21/15
+date: 11/22/15
+courese: Getting And Cleaning Data, The Johns Hopkins University, Bloomberg School of Public Health via Coursera Data Science Signature Track
 ---
 
 # Getting And Cleaning Data Course Project 
