@@ -111,7 +111,11 @@ Uses make.names and mean_std_features, followed by a series of gsub operations t
 This step is the heart of the project and combined with the knowedge of Hadley Wickham's R packages dplyr and tidyr, and the above processing steps the way forward comes into focus
 
 Because data is needed by "each acvitity and subject" group_by(subj, act) from tidyr is used
+
 Because there are 30 subjects and six activities this creates 180 groups
+
 Because the same subject performs the same activities multiple times aggregation is needed
+
 Because the mean of activities is also required at the time of the aggregation, summarize_each is used to apply the mean function
+
 Because it is means that are being reported, the string "mean_" is prepended to the name of each feature variable using setNames to further enhance these labels
