@@ -57,6 +57,7 @@ According to Hadley Wickham in the dplyr vignette,
 
 3. Actually crunching the numbers."
 
+I applied the above three axioms as follows
 
 1. Figuring out what you want to do.
 
@@ -105,7 +106,7 @@ According to Hadley Wickham in the dplyr vignette,
 
    Comines the above steps into run_analysis.R
 
-###Collection of the raw data
+###Collection of the raw data / Cleaning of the data
 
 Description of how the data was collected.
 
@@ -391,10 +392,6 @@ first   # to show result
 mean_std_features <- features$V2[mean_std_indx]
 colnames(extract_dataset) <- c(subj", "act", as.character(mean_std_features))
 
-###Cleaning of the data
-
-
-
 ###Guide to create the tidy data file
 
 ##Creating the tidy datafile
@@ -417,11 +414,111 @@ Use summarize_each, mean, SetNames and Paste0 aggregate group_by data, take mean
 tidy_dataset <- tstdf %>% summarize_each(funs(mean)) %>% setNames(c(names(.)[1], names(.)[2], paste0("mean_", names(.)[3:88])))
 
 
-##Description of the variables in the tiny_data.txt file
-General description of the file including:
- - Dimensions of the dataset
- - Summary of the data
- - Variables present in the dataset
+### Description of the variables in the tiny_data.txt file
+
+## Dimensions of the dataset
+
+The tidy_dataset has 180 rows which are observations of the 30 subjects performing each of the 6 activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+
+eatures for which contain the string "std" or "mean" for which contain the string "std" or "mean" (case insensitive)
+
+The tidy dataset has 88 columns: subject (1-30), activity (each of the six activities for each subject, and 86 columns for the mean of the aggregate of the 86 measurement features taken for each subject perfoming each activity. 
+
+## Summary of the data
+
+The 
+
+## Variables present in the dataset
+
+colnames(tidy_dataset)
+ [1] "subj"                                    
+ [2] "act"                                     
+ [3] "mean_tBodyAcc_mean_X"                    
+ [4] "mean_tBodyAcc_mean_Y"                    
+ [5] "mean_tBodyAcc_mean_Z"                    
+ [6] "mean_tBodyAcc_std_X"                     
+ [7] "mean_tBodyAcc_std_Y"                     
+ [8] "mean_tBodyAcc_std_Z"                     
+ [9] "mean_tGravityAcc_mean_X"                 
+[10] "mean_tGravityAcc_mean_Y"                 
+[11] "mean_tGravityAcc_mean_Z"                 
+[12] "mean_tGravityAcc_std_X"                  
+[13] "mean_tGravityAcc_std_Y"                  
+[14] "mean_tGravityAcc_std_Z"                  
+[15] "mean_tBodyAccJerk_mean_X"                
+[16] "mean_tBodyAccJerk_mean_Y"                
+[17] "mean_tBodyAccJerk_mean_Z"                
+[18] "mean_tBodyAccJerk_std_X"                 
+[19] "mean_tBodyAccJerk_std_Y"                 
+[20] "mean_tBodyAccJerk_std_Z"                 
+[21] "mean_tBodyGyro_mean_X"                   
+[22] "mean_tBodyGyro_mean_Y"                   
+[23] "mean_tBodyGyro_mean_Z"                   
+[24] "mean_tBodyGyro_std_X"                    
+[25] "mean_tBodyGyro_std_Y"                    
+[26] "mean_tBodyGyro_std_Z"                    
+[27] "mean_tBodyGyroJerk_mean_X"               
+[28] "mean_tBodyGyroJerk_mean_Y"               
+[29] "mean_tBodyGyroJerk_mean_Z"               
+[30] "mean_tBodyGyroJerk_std_X"                
+[31] "mean_tBodyGyroJerk_std_Y"                
+[32] "mean_tBodyGyroJerk_std_Z"                
+[33] "mean_tBodyAccMag_mean"                   
+[34] "mean_tBodyAccMag_std"                    
+[35] "mean_tGravityAccMag_mean"                
+[36] "mean_tGravityAccMag_std"                 
+[37] "mean_tBodyAccJerkMag_mean"               
+[38] "mean_tBodyAccJerkMag_std"                
+[39] "mean_tBodyGyroMag_mean"                  
+[40] "mean_tBodyGyroMag_std"                   
+[41] "mean_tBodyGyroJerkMag_mean"              
+[42] "mean_tBodyGyroJerkMag_std"               
+[43] "mean_fBodyAcc_mean_X"                    
+[44] "mean_fBodyAcc_mean_Y"                    
+[45] "mean_fBodyAcc_mean_Z"                    
+[46] "mean_fBodyAcc_std_X"                     
+[47] "mean_fBodyAcc_std_Y"                     
+[48] "mean_fBodyAcc_std_Z"                     
+[49] "mean_fBodyAcc_meanFreq_X"                
+[50] "mean_fBodyAcc_meanFreq_Y"                
+[51] "mean_fBodyAcc_meanFreq_Z"                
+[52] "mean_fBodyAccJerk_mean_X"                
+[53] "mean_fBodyAccJerk_mean_Y"                
+[54] "mean_fBodyAccJerk_mean_Z"                
+[55] "mean_fBodyAccJerk_std_X"                 
+[56] "mean_fBodyAccJerk_std_Y"                 
+[57] "mean_fBodyAccJerk_std_Z"                 
+[58] "mean_fBodyAccJerk_meanFreq_X"            
+[59] "mean_fBodyAccJerk_meanFreq_Y"            
+[60] "mean_fBodyAccJerk_meanFreq_Z"            
+[61] "mean_fBodyGyro_mean_X"                   
+[62] "mean_fBodyGyro_mean_Y"                   
+[63] "mean_fBodyGyro_mean_Z"                   
+[64] "mean_fBodyGyro_std_X"                    
+[65] "mean_fBodyGyro_std_Y"                    
+[66] "mean_fBodyGyro_std_Z"                    
+[67] "mean_fBodyGyro_meanFreq_X"               
+[68] "mean_fBodyGyro_meanFreq_Y"               
+[69] "mean_fBodyGyro_meanFreq_Z"               
+[70] "mean_fBodyAccMag_mean"                   
+[71] "mean_fBodyAccMag_std"                    
+[72] "mean_fBodyAccMag_meanFreq"               
+[73] "mean_fBodyBodyAccJerkMag_mean"           
+[74] "mean_fBodyBodyAccJerkMag_std"            
+[75] "mean_fBodyBodyAccJerkMag_meanFreq"       
+[76] "mean_fBodyBodyGyroMag_mean"              
+[77] "mean_fBodyBodyGyroMag_std"               
+[78] "mean_fBodyBodyGyroMag_meanFreq"          
+[79] "mean_fBodyBodyGyroJerkMag_mean"          
+[80] "mean_fBodyBodyGyroJerkMag_std"           
+[81] "mean_fBodyBodyGyroJerkMag_meanFreq"      
+[82] "mean_angle_tBodyAccMean_gravity"         
+[83] "mean_angle_tBodyAccJerkMean_gravityMean" 
+[84] "mean_angle_tBodyGyroMean_gravityMean"    
+[85] "mean_angle_tBodyGyroJerkMean_gravityMean"
+[86] "mean_angle_X_gravityMean"                
+[87] "mean_angle_Y_gravityMean"                
+[88] "mean_angle_Z_gravityMean"
 
 ##Sources
 
