@@ -60,16 +60,16 @@ Each object above is a data.frame
 
 From the above numbers and some simple tests detailed in CodeBook.md we see that  
 
-Number of subjects: 30 == unique elements in subjtest and subjtrain
-Number of Instances: 10299 == combined number of elements in subjtest and subjtrain
-Number of Instances: 10299 == combined number of observations in xtest and xtrain
-Number of Attributes: 561 == number of features in features
-Number of Attributes: 561 == number of variables in xtest and xtrain (V1 - V561)
-Number of recorded activities: 6 == number of labels in activity_labels
-Number of recorded activities: 6 == number of unique elements in combined ytest
+* Number of subjects: 30 == unique elements in subjtest and subjtrain
+* Number of Instances: 10299 == combined number of elements in subjtest and subjtrain
+* Number of Instances: 10299 == combined number of observations in xtest and xtrain
+* Number of Attributes: 561 == number of features in features
+* Number of Attributes: 561 == number of variables in xtest and xtrain (V1 - V561)
+* Number of recorded activities: 6 == number of labels in activity_labels
+* Number of recorded activities: 6 == number of unique elements in combined ytest
 and ytrain
-Dimensions of subjtest match ytest
-Dimensions of subjtrain match ytrain
+* Dimensions of subjtest match ytest
+* Dimensions of subjtrain match ytrain
 
 ## Project Steps
 
