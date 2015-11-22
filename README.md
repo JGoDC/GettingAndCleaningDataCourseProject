@@ -24,7 +24,7 @@ final output of the project
 
 ## Explanation of how the project was solved 
 
-### Step 1.  Look at project specifications and web site containing project data:
+### Observation 1.  Look at project specifications and web site containing project data:
 
 From the Abstract on the web site providing the raw data -- the following
 numbers seem to be key to understanding the data:
@@ -34,7 +34,7 @@ numbers seem to be key to understanding the data:
 * Number of Attributes: 561
 * Number of recorded activities: 6
 
-### Step 2.  Look at raw data
+### Observation 2.  Look at raw data
 
 Expect to see numbers from step 1 reflected in the raw data, which we do as is
 summarized here and explained in detail in the Codebook.md
@@ -56,23 +56,41 @@ the first step in the project requirements
   "subjtrain"       - [1] 7352    1
   "subjtest"        - [1] 2947    1
 
-Check the structure of the objects now containing the raw data:
+Each object above is a data.frame
 
-str(activity_labels)
-'data.frame':   6 obs. of  2 variables
+From the above numbers and some simple tests detailed in CodeBook.md we see that  
 
-str(features)
-'data.frame':   561 obs. of  2 variables
+Number of subjects: 30 == unique elements in subjtest and subjtrain
+Number of Instances: 10299 == combined number of elements in subjtest and subjtrain
+Number of Instances: 10299 == combined number of observations in xtest and xtrain
+Number of Attributes: 561 == number of features in features
+Number of Attributes: 561 == number of variables in xtest and xtrain (V1 - V561)
+Number of recorded activities: 6 == number of labels in activity_labels
+Number of recorded activities: 6 == number of unique elements in combined ytest
+and ytrain
+Dimensions of subjtest match ytest
+Dimensions of subjtrain match ytrain
 
-str(xtrain)
-'data.frame':   7352 obs. of  561 variables
+## Project Steps
 
-str(ytrain)
-'data.frame':   7352 obs. of  1 variable
+### Project Step 1: Merge training and test datasets
 
-str(xtest)
-'data.frame':   2947 obs. of  561 variables
+Based on the dimensional and structural analysis in the preceeding section it
+is now apparent that the way to merge the data is as follows
 
-str(xtest)
-'data.frame':   2947 obs. of  561 variables
+Merge subjtest and subjtrain into subjmerge by concatenating data.frames
+subjmerge <- as.data.frame(unlist(combine(subjtest, subjtrain)))
+
+Merge y_test and y_train into y_merge by concaenating data.frames
+ymerge <- as.data.frame(unlist(combine(ytest, ytrain)))
+
+Merge X_test and X_train into X_merge using bind_rows from dplyr
+xmerge <- bind_rows(xtest, xtrain)
+
+Merge subjmerge, ymerge, xmerge into a single dataset using bind_cols from dplyr:
+bind_cols(subjmerge, ymerge, xmerge)
+
+merge_x_subj_y <- bind_cols(subjmerge, ymerge, xmerge)
+
+
 
