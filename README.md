@@ -22,7 +22,7 @@ detailed explanation of the project and processing
 ### tidy_dataset        
 final output of the project
 
-## Explanation of the project solution
+## Explanation of how the project was solved 
 
 ### Step 1.  Look at project specifications and web site containing project data:
 
@@ -59,23 +59,20 @@ the first step in the project requirements
 Check the structure of the objects now containing the raw data:
 
 str(activity_labels)
-'data.frame':   6 obs. of  2 variables:
- * V1: int  1 2 3 4 5 6
- * V2: Factor w/ 6 levels "LAYING","SITTING",..: 4 6 5 2 3 1
+'data.frame':   6 obs. of  2 variables
 
 str(features)
-'data.frame':   561 obs. of  2 variables:
- * V1: int  1 2 3 4 5 6 7 8 9 10 ...
- * V2: Factor w/ 477 levels "angle(tBodyAccJerkMean),gravityMean)",..: 243 244 245 250 251 252 237 238 239 240 ..
+'data.frame':   561 obs. of  2 variables
 
 str(xtrain)
-'data.frame':   7352 obs. of  561 variables:
+'data.frame':   7352 obs. of  561 variables
+
+str(ytrain)
+'data.frame':   7352 obs. of  1 variable
 
 str(xtest)
 'data.frame':   2947 obs. of  561 variables
- * V1  : num  0.257 0.286 0.275 0.27 0.275 ...
 
-str(ytrain)
-'data.frame':   7352 obs. of  1 variable:
- * V1: int  5 5 5 5 5 5 5 5 5 5 ...
+str(xtest)
+'data.frame':   2947 obs. of  561 variables
 
