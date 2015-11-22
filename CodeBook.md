@@ -327,40 +327,49 @@ merge_x_subj_y <- bind_cols(subjmerge, ymerge, xmerge)
 
 ## 2) Extracts only the measurements on the mean and standard deviation for each measurement. 
 
-# see features_info.txt
-# 
-# verified that these values were correct
-# $ grep -i mean features.txt | wc -l
-#       53
-# > tbl_df(features) %>% filter(grepl("std", V2)) 
-# Source: local data frame [33 x 2]
-# 
-# $ grep -i std features.txt | wc -l
-#       33
-# 
-# > head(features)	# NB: features are not unique, col names must be unique, so can't apply features to col names
-#   V1                V2	# in fully merged data set
-# 1  1 tBodyAcc-mean()-X
-# 2  2 tBodyAcc-mean()-Y
-# ...
-# > dim(features)
-# [1] 561   2
+see features_info.txt
+  verified that these values were correct
+ grep -i mean features.txt | wc -l
+       53
+ tbl_df(features) %>% filter(grepl("std", V2)) 
+ Source: local data frame [33 x 2]
+ 
+ grep -i std features.txt | wc -l
+       33
+ 
+ head(features)	# NB: features are not unique, col names must be unique, so can't apply features to col names
+   V1                V2	# in fully merged data set
+ 1  1 tBodyAcc-mean()-X
+ 2  2 tBodyAcc-mean()-Y
+ ...
+ dim(features)
+ [1] 561   2
 
-# create mean_std_indexes to be able to 
-# select measurement on the mean and std for each measurement:
-> mean_std_indx_tbl_df <- tbl_df(features) %>% filter(grepl("[Mm]ean|std", V2)) %>% select(V1)  # index on substr
-> length(mean_std_indx_tbl_df$V1)
+create mean_std_indexes to be able to 
+
+select measurement on the mean and std for each measurement:
+
+mean_std_indx_tbl_df <- tbl_df(features) %>% filter(grepl("[Mm]ean|std", V2)) %>% select(V1)  # 
+
+index on substr
+
+length(mean_std_indx_tbl_df$V1)
 [1] 86
+
 mean_std_indexes <- as.vector(mean_std_indx_tbl_df$V1)
+
 extract_dataset <- merge_x_subj_y %>% select(mean_std_indexes)  # NB does not have subj and act
 
-# extract mean/std as above and combing subj and act afterwords using col_bind again 
+extract mean/std as above and combing subj and act afterwords using col_bind again 
 
 num_xcols <- as.numeric(dim(xmerge)[2])
-# num_xcols
-# [1] 561
+
+num_xcols
+#[1] 561
 subj_col_num <- num_xcols + 1
+
 act_col_num <- num_xcols + 2
+
 extract_dataset <- merge_x_subj_y %>% select(c(mean_std_indexes, subj_col_num, act_col_num))
 
 
@@ -385,10 +394,14 @@ source('~/coursera/r/UCI_HAR_Dataset/test/go.R')
 first   # to show result
 
 4) Appropriately labels the data set with descriptive variable names. 
-# need to translate V1:V561 to features ~ very simple: but can't use b/c are duplicates & can't have duplctd col names
-# > colnames(df) <- features$V2	#****
-# but this should work
-# colnames(extract_dataset) <- c(as.character(mean_std_features), "subj", "act")
+
+need to translate V1:V561 to features ~ very simple: but can't use b/c are duplicates & can't have duplctd col names
+
+colnames(df) <- features$V2	#****
+
+but this should work
+
+colnames(extract_dataset) <- c(as.character(mean_std_features), "subj", "act")
 mean_std_features <- features$V2[mean_std_indx]
 colnames(extract_dataset) <- c(subj", "act", as.character(mean_std_features))
 
@@ -404,7 +417,7 @@ extract_dataset %>% group_by(subj,act)
 Source: local data frame [10,299 x 88]
 Groups: subj, act [180]
 
-    subj      act tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z tBodyAcc-std()-X
+    subj      act   mean_tBodyAcc_mean_X     mean_tBodyAcc_mean_Y     mean_tBodyAcc_mean_Z            mean_tBodyAcc_std_X
    (int)    (chr)             (dbl)             (dbl)             (dbl)            (dbl)
 1      2 STANDING         0.2571778       -0.02328523       -0.01465376       -0.9384040
 2      2 STANDING         0.2860267       -0.01316336       -0.11908252       -0.9754147
@@ -431,6 +444,7 @@ The
 ## Variables present in the dataset
 
 colnames(tidy_dataset)
+
  [1] "subj"                                    
  [2] "act"                                     
  [3] "mean_tBodyAcc_mean_X"                    
