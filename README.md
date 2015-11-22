@@ -2,7 +2,7 @@
 title: READMD.md
 author: J Go 
 date: 11/22/15
-coures: Getting And Cleaning Data, JHU, Bloomberg School of Public Health via Coursera
+course: Getting And Cleaning Data, JHU, Bloomberg School of Public Health via Coursera
 ---
 
 # Getting And Cleaning Data Course Project 
