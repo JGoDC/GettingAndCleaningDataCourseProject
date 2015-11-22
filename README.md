@@ -92,13 +92,26 @@ bind_cols(subjmerge, ymerge, xmerge)
 
 merge_x_subj_y <- bind_cols(subjmerge, ymerge, xmerge)
 
-### Project Step 2: Extracts only the measurements on the mean and standard deviation for each measurement using tbl_df, filter and select.  See codebook and script for further details
+### Project Step 2: Extracts only the measurements on the mean and standard deviation for each measurement 
+
+Create object called mean_std_features using tbl_df, filter and select.  See codebook and script for further details
 
 tbl_df(features) %>% filter(grepl("[Mm]ean|std", V2)) %>% select(V1)
 
-### Project Step 3:
+### Project Step 3: Uses descriptive activity names to name the activities in the data set
 
-### Project Step 4:
+Translated 1:6 to activities using the activity labels in features with a for loop
 
-### Project Step 5: 
+### Project Step 4: Appropriately labels the data set with descriptive variable names
 
+Uses make.names and mean_std_features, followed by a series of gsub operations to remove speclial characters from the variable names.  Also experimented with qdap as an alternate to series of qsubs
+
+### Project Step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject 
+
+This step is the heart of the project and combined with the knowedge of Hadley Wickham's R packages dplyr and tidyr, and the above processing steps the way forward comes into focus
+
+Because data is needed by "each acvitity and subject" group_by(subj, act) from tidyr is used
+Because there are 30 subjects and six activities this creates 180 groups
+Because the same subject performs the same activities multiple times aggregation is needed
+Because the mean of activities is also required at the time of the aggregation, summarize_each is used to apply the mean function
+Because it is means that are being reported, the string "mean_" is prepended to the name of each feature variable using setNames to further enhance these labels
