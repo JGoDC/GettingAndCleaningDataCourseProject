@@ -20,7 +20,7 @@ into the final output of the project, the tidy_file
 ### CodeBook.md         
 detailed explanation of the project and processing
 
-### tidy_dataset        
+### tidy_dataset.txt        
 final output of the project
 
 ## Explanation of how the project was solved 
